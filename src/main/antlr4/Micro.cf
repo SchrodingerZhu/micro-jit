@@ -1,0 +1,23 @@
+Program. Prog ::= "begin" [Stm] "end";
+
+SAssign. Stm  ::= Ident ":=" Exp;
+SRead.   Stm  ::= "read" "(" [Ident] ")";
+SWrite.  Stm  ::= "write" "(" [Exp] ")";
+
+EAdd.  Exp    ::= Exp "+" Exp1 ;
+ESub.  Exp    ::= Exp "-" Exp1 ;
+_.     Exp    ::= Exp1;
+
+EMul.  Exp1   ::= Exp1 "*" Exp2 ;
+EDiv.  Exp1   ::= Exp1 "/" Exp2 ;
+_.     Exp1   ::= Exp2;
+
+EInt.  Exp2   ::= Integer ;
+EDbl.  Exp2   ::= Double ;
+EIdn.  Exp2   ::= Ident ;
+_.     Exp2   ::= "(" Exp ")" ;
+
+separator Ident ",";
+separator Exp ",";
+terminator nonempty Stm ";" ;
+
