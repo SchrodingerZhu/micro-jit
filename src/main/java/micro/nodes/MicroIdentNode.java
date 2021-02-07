@@ -13,7 +13,7 @@ public class MicroIdentNode extends MicroExprNode {
        if (slot == null && !noSuchVar) {
            CompilerDirectives.transferToInterpreter();
            noSuchVar = true;
-           throw new RuntimeException("no such variable");
+           throw new RuntimeException("no such variable: " + name);
        }
        return frame.getValue(slot);
     }    
